@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: train_mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: train_db
+    ports:
+      - "3307:3306" 
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - train_net
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  server:
+    build: ./server
+    container_name: train_server_container
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=mysql_db
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=train_db
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+    networks:
+      - train_net
+
+  client:
+    build: ./client
+    container_name: train_client_container
+    ports:
+      - "5173:5173"
+    networks:
+      - train_net
+
+volumes:
+  mysql_data:
+
+networks:
+  train_net:
+    driver: bridge
