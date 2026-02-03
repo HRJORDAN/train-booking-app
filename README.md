@@ -6,9 +6,7 @@ A simple, containerized Train Booking System. It uses **React** for the frontend
 
 ## Prerequisites
 
-Before starting, make sure you have:
-
-1. **Docker Desktop** installed and running → [Download here](https://www.docker.com/products/docker-desktop/)
+1. **Docker Desktop** installed and running 
 2. **Git** installed
 
 ---
