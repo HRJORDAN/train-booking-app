@@ -6,7 +6,7 @@ A simple, containerized Train Booking System. It uses **React** for the frontend
 
 ## Prerequisites
 
-1. **Docker Desktop** installed and running 
+1. **Docker Desktop** installed and running
 2. **Git** installed
 
 ---
@@ -27,6 +27,18 @@ git clone https://github.com/HRJORDAN/train-booking-app.git
 cd train-booking-app
 ```
 
+Then install all the dependencies for both **client** and **server**:
+
+```bash
+cd client
+npm install
+```
+
+```bash
+cd ../server
+npm install
+```
+
 ### 3. Start the App
 
 This single command builds and starts the **Frontend**, **Backend**, and **Database** all at once:
@@ -39,24 +51,24 @@ docker-compose up --build
 
 Once you see `Server running...` or `ready for connections` in the terminal, open your browser:
 
-| Service       | URL                      |
-|---------------|--------------------------|
-| Frontend   | http://localhost:5173     |
-| Backend API| http://localhost:5000     |
+| Service     | URL                   |
+|-------------|-----------------------|
+| Frontend    | http://localhost:5173 |
+| Backend API | http://localhost:5000 |
 
 ---
 
 ## Database Access (Optional)
 
-The database is **automatically created** on startup. If you want to inspect the data using a tool like **MySQL Workbench** use these credentials:
+The database is **automatically created** on startup. If you want to inspect the data using a tool like **MySQL Workbench**, use these credentials:
 
-| Setting  | Value           |
-|----------|-----------------|
-| Host     | `127.0.0.1`     |
-| Port     | `3307`          |
-| Username | `root`          |
-| Password | `password`      |
-| Database | `train_db`      |
+| Setting  | Value       |
+|----------|-------------|
+| Host     | `127.0.0.1` |
+| Port     | `3307`      |
+| Username | `root`      |
+| Password | `password`  |
+| Database | `train_db`  |
 
 > Port `3307` is used to avoid conflicts if MySQL is already running on your machine.
 
@@ -65,13 +77,13 @@ The database is **automatically created** on startup. If you want to inspect the
 ## How to Stop
 
 **Pause the app:**
+
 ```bash
 Ctrl + C
 ```
 
 **Remove containers completely:**
+
 ```bash
 docker-compose down
 ```
-
----
