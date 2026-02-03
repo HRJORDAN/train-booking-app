@@ -44,6 +44,7 @@ npm install
 This single command builds and starts the **Frontend**, **Backend**, and **Database** all at once:
 
 ```bash
+cd ..
 docker-compose up --build
 ```
 
